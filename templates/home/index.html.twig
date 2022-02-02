@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello HomeController!{% endblock %}
+
+{% block body %}
+    {% for user in users %}
+        {{ user.username }}
+        <img src="build/{{ user.avatar.link }}">
+    {% endfor %}
+{% endblock %}
