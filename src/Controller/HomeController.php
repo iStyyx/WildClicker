@@ -20,16 +20,17 @@ class HomeController extends AbstractController
     {
         $user = $this->get('security.token_storage')->getToken()->getUser();
 
-        $pointDb = $_POST['points'];
-
         $points = $user->getPoint();
 
-        if ($pointDb !== null) {
+        if (isset($_POST['points']) && $_POST['points'] !== null) {
+            $pointDb = $_POST['points'];
             $points = intVal($pointDb);
             if ($points !== 0) {
                 $user->setPoint($points);
                 $entityManager->persist($user);
             }
+        } else {
+            $_POST['points'] = 0;
         }
         $entityManager->flush();
 
