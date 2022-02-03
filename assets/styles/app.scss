@@ -1,5 +1,69 @@
+@import 'variables.scss';
 @import "~bootstrap/scss/bootstrap";
 
-body {
-    background-color: lightgray;
+header {
+    width: 100%;
+    background-color: $blue;
+    padding: 1.25em 1em;
+
+    a {
+        text-decoration: none;
+        color: $white;
+    }
+
+    h1 {
+        margin: 0;
+
+        a:hover {
+            color: $white;
+        }
+    } 
+
+    nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        
+        ul {
+            margin: 0;
+
+            li {
+                list-style: none;
+                cursor: pointer;
+
+                a:hover {
+                    color: $white;
+                }
+            }
+
+            li:last-child {
+                list-style: none;
+                border-radius: 5px;
+                background-color: $light-blue;
+                padding: .35em .5em;
+            }
+
+            li:last-child:hover {
+                background-color: $dark-blue;
+            }
+        }
+    }
 }
+
+footer {
+    width: 100%;
+    bottom: 0;
+    height: 75px;
+    background-color: $dark-blue;
+    color: $white;
+    text-align: center;
+    display: flex;
+    align-items: center;
+
+    p {
+        font-size: 1em;
+        margin: 0 auto;
+    }
+}
+
+

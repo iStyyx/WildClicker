@@ -3,20 +3,27 @@
 {% block title %}Register{% endblock %}
 
 {% block body %}
-<h1>Register</h1>
+<section class="register">
+  <div class="titles container">
+    <h1>Sign in now</h1>
+    <hr class="separator">
+  </div>
 
-{{ form_start(registrationForm) }}
-{{ form_row(registrationForm.username) }}
-{{ form_row(registrationForm.plainPassword, {
-            label: 'Password'
-        }) }}
-{{ form_row(registrationForm.avatar) }}
-<button type="submit" class="btn">Register</button>
-{{ form_end(registrationForm) }}
+  {{ form_start(registrationForm) }}
+  {{ form_row(registrationForm.username) }}
+  {{ form_row(registrationForm.plainPassword, {
+              label: 'Password'
+          }) }}
+  {{ form_row(registrationForm.avatar, {'label': 'Avatar'}) }}
+  <button type="submit" class="btn">Register</button>
+  {{ form_end(registrationForm) }}
 
-<div class="container">
-    <img class="img-avatar" src="" />
-</div>
+  <div class="img-container">
+      <img class="img-avatar" src="build/images/Characters/choose_avatar.png" />
+      <div class="stand">
+      </div>
+  </div>
+</section>
 <script>
 
 function change() {
