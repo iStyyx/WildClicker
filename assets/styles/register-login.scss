@@ -1,0 +1,126 @@
+@import 'variables.scss';
+@import "~bootstrap/scss/bootstrap";
+
+.register, .login {
+
+    .titles.container {
+        margin-top: 2em;
+
+        h1 {
+            text-align: center;
+        }
+
+        .separator {
+            margin: .8em auto 2.5em;
+            width: 5em;
+            border: 2px solid $blue;
+            border-radius: 10px;
+            opacity: .8;
+        }
+    }
+
+    form {
+        width: 80%;
+        background: $light-blue;
+        border-radius: 10px;
+        margin: 0 auto;
+        padding: 1.5em 2em;
+        text-align: right;
+
+        label {
+            color: $white;
+            padding: .4em 0;
+            font-weight: 600;
+            text-align: left;
+        }
+
+        input {
+            background: $white;
+            border: 0.5px solid #000000;
+            box-sizing: border-box;
+            border-radius: 5px;
+            width: 100%;
+            padding: 0.2em .4em;
+        }
+
+        div {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        #registration_form_avatar {
+            width: 100%;
+            border-radius: 5px;
+            padding: 0.2em 0.2em 0.4em 0.2em;
+        }
+
+        button[type="submit"] {
+            border-radius: 5px;
+            background-color: $blue;
+            color: $white;
+            margin-top: 1em;
+        }
+
+        button[type="submit"]:hover {
+            background-color: $dark-blue;
+        }
+    }
+
+    .img-container {
+
+        margin: 3em auto;
+        text-align: center;
+        max-width: 370px;
+
+        img {
+            width: 150px;
+            height: 280px;
+        }
+
+        img[src="build/images/Characters/choose_avatar.png"]{
+            width: 250px;
+            height: 280px;
+            padding-left: 1em;
+            margin-bottom: -1em;
+        }
+    }
+
+    .stand {
+        clip-path: polygon(23% 0, 77% 0, 100% 100%, 0% 100%);
+        background-color: $blue;
+        height: 65px;
+        width: 60%;
+        margin: 0 auto;
+    }
+}
+
+.login {
+    margin: 3em auto 2em auto;
+
+    .login-image {
+        text-align: center;
+        margin: 3em auto 0 auto;
+
+        img {
+            width: 200px;
+            height: 350px;
+        }
+    }
+
+    form {
+        text-align: left;
+        margin: 2em auto;  
+
+        .login-submit {
+            display: block;
+            width: 100%;
+            text-align: right;
+            
+            button {
+                border-radius: 5px;
+                background-color: $blue;
+                color: $white;
+            }
+        }
+    }
+}

@@ -14,12 +14,14 @@
   {{ form_row(registrationForm.plainPassword, {
               label: 'Password'
           }) }}
-  {{ form_row(registrationForm.avatar) }}
+  {{ form_row(registrationForm.avatar, {'label': 'Avatar'}) }}
   <button type="submit" class="btn">Register</button>
   {{ form_end(registrationForm) }}
 
-  <div class="container">
-      <img class="img-avatar" src="" />
+  <div class="img-container">
+      <img class="img-avatar" src="build/images/Characters/choose_avatar.png" />
+      <div class="stand">
+      </div>
   </div>
 </section>
 <script>

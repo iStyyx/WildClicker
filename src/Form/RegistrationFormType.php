@@ -43,7 +43,7 @@ class RegistrationFormType extends AbstractType
                 'placeholder' => 'Choose your avatar',
                 'choice_label' => 'name',
                 'label' => 'Avatar',
-                'attr' => array('onchange' => 'change();'),
+                'attr' => array('onchange' => 'change();', 'name' => ""),
                 'choice_attr' => function (Avatar $avatar, $key, $index) {
                     return ['name' => $avatar->getLink()];
                 }

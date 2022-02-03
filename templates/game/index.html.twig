@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello HomeController!{% endblock %}
+
+{% block body %}
+    <div style="width: 150px; height: 150px; background: red; cursor: pointer;" onclick="submitForm();">
+    </div>
+    <div style="width: 150px; height: 150px; background: cyan; cursor: pointer;" onclick="clickCounter();" class="points" data="">
+    </div>
+    <h1> Hello {{ app.user.username }}!</h1>
+    <h2>Score: {{ app.user.point }}</h2>
+    <img src="build/{{ app.user.avatar.link }}">
+    <br>
+    <hr><br>
+    {% for user in users %}
+        {{ user.username }}
+        <img src="build/{{ user.avatar.link }}">
+        <form method="post" id="pointsForm" name="pointsForm" action="/game"> 
+        <input type="hidden" id="points" name="points" value="0"> 
+        </form>
+    {% endfor %}
+
+    <script src="jquery-3.5.1.min.js"></script>
+    <script>
+
+        function submitForm() {
+            document.getElementById("pointsForm").submit();
+        }
+
+        if (document.getElementById("pointsForm")) {
+            setTimeout("submitForm()", 1800000);
+        }
+        
+        let points = document.getElementById('points');
+        
+        let data = {
+            key: sessionStorage.clickcount
+        };
+
+        function clickCounter() {
+            if (sessionStorage.clickcount) {
+                sessionStorage.clickcount = Number(sessionStorage.clickcount)+1;
+                points.value = sessionStorage.clickcount;
+                document.querySelector('.points').innerHTML = sessionStorage.clickcount;
+                
+            } else {
+                sessionStorage.clickcount = 1;
+            }
+            document.querySelector('.points').innerHTML = sessionStorage.clickcount;
+        }        
+    </script>
+{% endblock %}

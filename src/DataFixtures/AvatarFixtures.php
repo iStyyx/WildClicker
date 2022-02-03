@@ -9,15 +9,15 @@ use Doctrine\Bundle\FixturesBundle\Fixture;
 class AvatarFixtures extends Fixture
 {
     const AVATARS_BOYS = [
-        'images/Characters/1-Boy.jpg',
-        'images/Characters/2-Boy.jpg',
-        'images/Characters/3-Boy.jpg',
+        'images/Characters/1-Boy.png',
+        'images/Characters/2-Boy.png',
+        'images/Characters/3-Boy.png',
     ];
 
     const AVATARS_GIRLS = [
-        'images/Characters/1-Girl.jpg',
-        'images/Characters/2-Girl.jpg',
-        'images/Characters/3-GIrl.jpg',
+        'images/Characters/1-Girl.png',
+        'images/Characters/2-Girl.png',
+        'images/Characters/3-GIrl.png',
     ];
 
     public function load(ObjectManager $manager): void
