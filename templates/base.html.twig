@@ -15,7 +15,14 @@
     </head>
     <body>
         <header>
-
+            <nav>
+                <h1><a href="{{ path('home') }}">Wild Clicker</h1>
+                <ul>
+                    <li>
+                        <a href="{{ path('app_register') }}">Sign in</a>
+                    </li>
+                </ul>
+            </nav>
         </header>
         {% block body %}{% endblock %}
     </body>
