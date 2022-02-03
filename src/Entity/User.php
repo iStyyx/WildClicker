@@ -50,6 +50,11 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     public $avatar;
 
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $point;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -154,6 +159,18 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setAvatar(?Avatar $avatar): self
     {
         $this->avatar = $avatar;
+
+        return $this;
+    }
+
+    public function getPoint(): ?int
+    {
+        return $this->point;
+    }
+
+    public function setPoint(?int $point): self
+    {
+        $this->point = $point;
 
         return $this;
     }
