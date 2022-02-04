@@ -2,6 +2,35 @@
 
 {% block title %}Hello HomeController!{% endblock %}
 
-{% block body %}
+{% block main %}
+<section class="home">
     
+    <h1>Welcome to the <br><strong>Wild Clicker</strong></h1>
+    <div class="instructions">
+        <h2>Instructions</h2><br>
+        <ol>
+            <li>
+                Create your account and log in to access the game
+            </li><br>
+            <li>
+                One account = one device
+            </li><br>
+            <li>
+                Click the maximum times on your avatar to be the best clicker
+            </li>
+        </ol>
+    </div>
+    <div class="sign-in">
+    {% if app.user %}
+        <a href="{{ path('account') }}">My account</a>
+    {% else %}
+        <a href="{{ path('app_register') }}">Sign in</a>
+    {% endif %}
+    </div>
+    {% if app.user %}
+    <div class="play">
+        <a href="{{ path('game') }}">Let's click!</a>
+    </div>
+    {% endif %}
+</secton>
 {% endblock %}
