@@ -4,7 +4,6 @@ namespace App\Controller;
 
 use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -15,7 +14,7 @@ class GameController extends AbstractController
     /**
      * @Route("/game", name="game")
      */
-    public function home(UserRepository $userRepo, UserInterface $user, Request $request, EntityManagerInterface $entityManager): Response
+    public function home(UserRepository $userRepo, UserInterface $user, EntityManagerInterface $entityManager): Response
     {
         $user = $this->get('security.token_storage')->getToken()->getUser();
 

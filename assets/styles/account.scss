@@ -1,0 +1,87 @@
+@import 'variables.scss';
+@import "~bootstrap/scss/bootstrap";
+
+.profile {
+
+
+    .titles {
+
+        h1 {
+            text-align: center;
+        }
+    }
+
+    .separator {
+        margin: .8em auto 2.5em;
+        width: 5em;
+        border: 2px solid $blue;
+        border-radius: 10px;
+        opacity: .8;
+    }
+
+    .account-info {
+        margin: 0 auto 4.1em auto;
+        padding: 2em;
+        width: 80%;
+        border-radius: 10px;
+        background-color: $light-blue;
+
+        h2 {
+            text-align: center;
+            color: $white;
+            font-size: 2em;
+        }
+
+        .stand {
+            clip-path: polygon(23% 0, 77% 0, 100% 100%, 0% 100%);
+            background-color: $blue;
+            color: $white;
+            font-size: 1.2em;
+            font-weight: 600;
+            height: 80px;
+            width: 85%;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+        }
+    
+        .img-container {
+            margin: 1.5em auto;
+            text-align: center;
+            max-width: 370px;
+    
+            img {
+                width: 160px;
+                height: 280px;
+            }
+        }
+    
+        .submit {
+            text-align: center;
+            width: 60%;
+            cursor: pointer;
+            border-radius: 5px;
+            padding: 0.5em;
+            background-color: $blue;
+            margin: 2em auto 0 auto;
+            color: $white;
+        }
+    
+        .submit:hover {
+            background-color: $dark-blue;
+        }
+    }
+}
+
+@media screen and (min-width: 475px) {
+    .profile {
+
+        .account-info {
+
+            .stand {
+                width: 65%;
+            }
+        }
+    }
+}
