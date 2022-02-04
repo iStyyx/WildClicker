@@ -4,8 +4,6 @@
 .home {
     margin-top: -3em;
     padding: 1.5em;
-    height: 84vh;
-    min-height: 850px;
     background: linear-gradient($blue, $dark-blue);
 
     h1 {
@@ -38,6 +36,18 @@
         }
     }
 
+     
+    a {
+        color: $white;
+        width: 100%;
+        height: 100%;
+        text-decoration: none;
+    }
+
+    a:hover {
+        color: $white;
+    }
+
     .sign-in, .play {
         width: 60%;
         border-radius: 5px;
@@ -45,17 +55,6 @@
         padding: .6em .5em;
         margin: 0 auto;
         text-align: center;
-
-        a {
-            color: $white;
-            width: 100%;
-            height: 100%;
-            text-decoration: none;
-        }
-
-        a:hover {
-            color: $white;
-        }
     }
 
     .sign-in:hover, .play:hover {

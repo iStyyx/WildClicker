@@ -1,0 +1,203 @@
+@import 'variables.scss';
+@import "~bootstrap/scss/bootstrap";
+
+.game {
+
+    .titles {
+        margin-top: 2em;
+
+        h1 {
+            text-align: center;
+        }
+
+        .separator {
+            margin: .8em auto 2.5em;
+            width: 5em;
+            border: 2px solid $blue;
+            border-radius: 10px;
+            opacity: .8;
+        }
+    }
+
+    .podium-section {
+        margin-bottom: 6em;
+
+        .img-container {
+        text-align: center;
+        max-width: 370px;
+
+            img {
+                width: 90px;
+                height: 160px;
+            }
+        }
+
+        .stand {
+            clip-path: polygon(23% 0, 77% 0, 100% 100%, 0% 100%);
+            background-color: $blue;
+            margin: 0 auto;
+            padding: .4em 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+        }
+
+        .stand span:first-child {
+            color: $white;
+            font-size: 1.8em;
+            font-weight: bold;
+        }
+
+        .stand span:last-child {
+            color: $white;
+            font-size: 1.2em;
+            font-weight: 600;
+            word-wrap: break-word;
+        }
+
+        .stand.n1 {
+            height: 185px;
+            width: 100%;
+        }
+
+        .stand.n2 {
+            height: 140px;
+            width: 100%;
+        }
+
+        .stand.n3 {
+            height: 110px;
+            width: 100%;
+        }
+
+        .podium {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            margin: 0 auto;
+
+            .podium-container {
+                width: 32%;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-end;
+                text-align: center;
+
+                h3 {
+                    margin-bottom: 1em;
+                    color: $blue;
+                    word-wrap: break-word;
+                }
+            }
+        }
+    }
+
+    .click-section {
+        background-color: $grey;
+        padding: 1.5em 0 5em;
+        border-top: 1px solid $blue;
+        border-bottom: 1px solid $blue;
+        margin: 5em auto;
+
+        .img-container {
+
+            margin: 0 auto;
+            text-align: center;
+            max-width: 370px;
+    
+            img {
+                width: 150px;
+                height: 260px;
+            }
+        }
+
+        .stand {
+            clip-path: polygon(23% 0, 77% 0, 100% 100%, 0% 100%);
+            background-color: $blue;
+            height: 80px;
+            width: 55%;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+        }
+
+        .stand span:first-child {
+            color: $white;
+            font-size: 1.4em;
+            font-weight: 600;
+            word-wrap: break-word;
+        }
+
+        .stand span:last-child {
+            color: $white;
+            font-size: 1.2em;
+            font-weight: 600;
+            word-wrap: break-word;
+        }
+
+        .submit {
+            text-align: center;
+            width: 35%;
+            cursor: pointer;
+            border-radius: 5px;
+            padding: 0.5em;
+            background-color: $light-blue;
+            margin: 2em auto 0 auto;
+            color: $white;
+        }
+
+        .submit:hover {
+            background-color: $dark-blue;
+        }
+    }
+
+    .top25-section {
+
+        .img-container {
+            margin: 0 1em;
+            text-align: center;
+            max-width: 230px;
+    
+            img {
+                width: 120px;
+                height: 200px;
+            }
+        }
+
+        .top25 {
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+
+            .stand {
+                background-color: $blue;
+                text-align: left;
+                margin-top: .5em;
+                border-radius: 5px;
+                padding: .5em .5em .5em 1em;
+                color: $white;
+                word-wrap: break-word;
+                font-weight: 500;
+            }
+
+            .img-container {
+                margin-bottom: 3em;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 500px) {
+    .game {
+
+        .podium {
+            padding: 0 2em;
+        }
+
+        .click-section {
+            margin-bottom: 7em;
+        }
+    }
+}

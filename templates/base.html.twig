@@ -16,7 +16,14 @@
     <body>
         <header>
             <nav>
-                <h1><a href="{{ path('game') }}">Wild Clicker</h1>
+                
+                <h1>
+                    {% if is_granted('ROLE_USER') %}
+                    <a href="{{ path('game') }}">Wild Clicker</a>
+                    {% else %}
+                    <a href="{{ path('home') }}">Wild Clicker</a>
+                    {% endif %}
+                </h1>
                 <ul>
                     
                     <li>
