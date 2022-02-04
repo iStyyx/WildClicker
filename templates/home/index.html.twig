@@ -16,21 +16,29 @@
                 One account = one device
             </li><br>
             <li>
-                Click the maximum times on your avatar to be the best clicker
+                Click the maximum times on your avatar to become the best clicker <br>*in the 'Let's click forever!' section*
+            </li><br>
+            <li>
+                Points are save every 30 minutes. You can also click on the 'save my points' button to save them
             </li>
         </ol>
     </div>
-    <div class="sign-in">
+    
     {% if app.user %}
-        <a href="{{ path('account') }}">My account</a>
+        <a href="{{ path('account') }}">
+            <div class="sign-in">My account</div>
+        </a>
     {% else %}
-        <a href="{{ path('app_register') }}">Sign in</a>
+        <a href="{{ path('app_register') }}">
+            <div class="sign-in">Sign in</div>
+        </a>
     {% endif %}
-    </div>
+
     {% if app.user %}
-    <div class="play">
-        <a href="{{ path('game') }}">Let's click!</a>
-    </div>
+        <a href="{{ path('game') }}">
+            <div class="play">Let's click!</div>
+        </a>
     {% endif %}
+    
 </secton>
 {% endblock %}

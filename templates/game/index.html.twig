@@ -3,50 +3,132 @@
 {% block title %}Hello HomeController!{% endblock %}
 
 {% block main %}
-    <div style="width: 150px; height: 150px; background: red; cursor: pointer;" onclick="submitForm();">
-    </div>
-    <div style="width: 150px; height: 150px; background: cyan; cursor: pointer;" onclick="clickCounter();" class="points" data="">
-    </div>
-    <h1> Hello {{ app.user.username }}!</h1>
-    <h2>Score: {{ app.user.point }}</h2>
-    <img src="build/{{ app.user.avatar.link }}">
-    <br>
-    <hr><br>
-    {% for user in users %}
-        {{ user.username }}
-        <img src="build/{{ user.avatar.link }}">
+<section class="game">
+    <section class="podium-section">
+        <div class="titles container">
+            <h1>Best clickers of the month</h1>
+            <hr class="separator">
+        </div>
+        <div class="podium">
+            <div class="podium-container">
+                <h3>{{ top3[1].point }}</h3>
+                <div class="img-container">
+                    {% if top3[1].username == app.user.username %}
+                        <img class="img-avatar" style="cursor: pointer;" onclick="clickCounter();" src="build/{{ top3[1].avatar.link }}" />
+                    {% else %}
+                        <img class="img-avatar" src="build/{{ top3[1].avatar.link }}" />
+                    {% endif %}
+                    <div class="stand n2">
+                        <span>2nd</span><br>
+                        <span>{{ top3[1].username }}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="podium-container">
+                <h3>{{ top3[0].point }}</h3>
+                <div class="img-container">
+                    {% if top3[0].username == app.user.username %}
+                        <img class="img-avatar" style="cursor: pointer;" onclick="clickCounter();" src="build/{{ top3[0].avatar.link }}" />
+                    {% else %}
+                        <img class="img-avatar" src="build/{{ top3[0].avatar.link }}" />
+                    {% endif %}
+                    <div class="stand n1">
+                        <span>1st</span><br>
+                        <span>{{ top3[0].username }}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="podium-container">
+                <h3>{{ top3[2].point }}</h3>
+                <div class="img-container">
+                    {% if top3[2].username == app.user.username %}
+                        <img class="img-avatar" style="cursor: pointer;" onclick="clickCounter();" src="build/{{ top3[2].avatar.link }}" />
+                    {% else %}
+                        <img class="img-avatar" src="build/{{ top3[2].avatar.link }}" />
+                    {% endif %}
+                    <div class="stand n3">
+                        <span>3rd</span><br>
+                        <span>{{ top3[2].username }}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="click-section">
+        <div class="titles container">
+            <h1>Let's click forever!</h1>
+            <hr class="separator">
+        </div>
+        <div class="img-container">
+            <img class="img-avatar" style="cursor: pointer;" onclick="clickCounter();" src="build/{{ app.user.avatar.link }}" alt="my avatar, click on me to increase point"/>
+            <div class="stand">
+                <span>{{ app.user.username }}</span>
+                <span class="count-points">{{ app.user.point }} pts</span>
+            </div>
+        </div>
+        <div onclick="submitForm();" class="submit">Save my points</div>
         <form method="post" id="pointsForm" name="pointsForm" action="/game"> 
-        <input type="hidden" id="points" name="points" value="0"> 
+            <input type="hidden" id="points" name="points" value="0"> 
         </form>
-    {% endfor %}
+    </section>
+    <section class="top25-section">
+        <div class="titles container">
+            <h1>The top 25</h1>
+            <hr class="separator">
+        </div>
+        <div class="top25">
+            {% set count = 0 %}
+            {% for user in top25 %}
+                {% set count = count + 1 %}
+                <div class="img-container">
+                    {% if user.username == app.user.username %}
+                        <img class="img-avatar" style="cursor: pointer;" onclick="clickCounter();" src="build/{{ user.avatar.link }}" alt="my avatar, click on me to increase point"/>
+                    {% else %}
+                        <img class="img-avatar" src="build/{{ user.avatar.link }}" alt="my avatar, click on me to increase point"/>
+                    {% endif %}
+                    <div class="stand">
+                        <span>{{ count }}- {{ user.username }}</span><br>
+                        <span class="count-points">{{ user.point }} pts</span>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </section>
+    
+</section>
 
-    <script src="jquery-3.5.1.min.js"></script>
-    <script>
 
-        function submitForm() {
-            document.getElementById("pointsForm").submit();
+
+
+
+<script src="jquery-3.5.1.min.js"></script>
+<script>
+
+    function submitForm() {
+        document.getElementById("pointsForm").submit();
+    }
+
+    if (document.getElementById("pointsForm")) {
+        setTimeout("submitForm()", 1800000);
+    }
+    
+    let points = document.getElementById('points');
+    
+    let data = {
+        key: sessionStorage.clickcount
+    };
+
+    function clickCounter() {
+        if (sessionStorage.clickcount) {
+            sessionStorage.clickcount = Number(sessionStorage.clickcount)+1;
+            points.value = sessionStorage.clickcount;
+            document.querySelector('.count-points').innerHTML = sessionStorage.clickcount + ' pts';
+            
+        } else {
+            sessionStorage.clickcount = 1;
         }
-
-        if (document.getElementById("pointsForm")) {
-            setTimeout("submitForm()", 1800000);
-        }
-        
-        let points = document.getElementById('points');
-        
-        let data = {
-            key: sessionStorage.clickcount
-        };
-
-        function clickCounter() {
-            if (sessionStorage.clickcount) {
-                sessionStorage.clickcount = Number(sessionStorage.clickcount)+1;
-                points.value = sessionStorage.clickcount;
-                document.querySelector('.points').innerHTML = sessionStorage.clickcount;
-                
-            } else {
-                sessionStorage.clickcount = 1;
-            }
-            document.querySelector('.points').innerHTML = sessionStorage.clickcount;
-        }        
-    </script>
+        document.querySelector('.count-points').innerHTML = sessionStorage.clickcount + ' pts';
+    }        
+</script>
 {% endblock %}

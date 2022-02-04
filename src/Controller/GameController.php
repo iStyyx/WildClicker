@@ -35,6 +35,8 @@ class GameController extends AbstractController
 
         return $this->render('game/index.html.twig', [
             'users' => $userRepo->findAll(),
+            'top3' => $userRepo->findBy([], ['point' => 'DESC'], 3),
+            'top25' => $userRepo->findBy([], ['point' => 'DESC'], 25),
         ]);
     }
 }
