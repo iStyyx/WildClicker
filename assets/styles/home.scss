@@ -1,0 +1,69 @@
+@import 'variables.scss';
+@import "~bootstrap/scss/bootstrap";
+
+.home {
+    margin-top: -3em;
+    padding: 1.5em;
+    height: 84vh;
+    min-height: 850px;
+    background: linear-gradient($blue, $dark-blue);
+
+    h1 {
+        padding-top: 1em;
+        text-align: center;
+        color: $white;
+        line-height: 1.5em;
+        font-size: 2.5em;
+    }
+
+    .instructions {
+        width: 80%;
+        background: $light-blue;
+        border-radius: 10px;
+        margin: 4em auto 2em auto;
+        padding: 1em;
+
+        h2 {
+            text-align: center;
+            color: $white;
+            font-size: 1.75em;
+        }
+
+        ol {
+
+            li {
+                color: $white;
+                font-size: 1.2em;
+            }
+        }
+    }
+
+    .sign-in, .play {
+        width: 60%;
+        border-radius: 5px;
+        background-color: $blue;
+        padding: .6em .5em;
+        margin: 0 auto;
+        text-align: center;
+
+        a {
+            color: $white;
+            width: 100%;
+            height: 100%;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: $white;
+        }
+    }
+
+    .sign-in:hover, .play:hover {
+        background-color: #3a3ab9;
+        cursor: pointer;
+    }
+
+    .play {
+        margin-top: 1em;
+    }
+}

@@ -1,10 +1,16 @@
 @import 'variables.scss';
 @import "~bootstrap/scss/bootstrap";
 
+.separator-top {
+    margin: 0;
+    margin-bottom: 3em;
+    border: $light;
+}
+
 header {
     width: 100%;
     background-color: $blue;
-    padding: 1.25em 1em;
+    padding: 1.25em .5em;
 
     a {
         text-decoration: none;
@@ -17,7 +23,7 @@ header {
         a:hover {
             color: $white;
         }
-    } 
+    }
 
     nav {
         display: flex;
@@ -25,14 +31,19 @@ header {
         align-items: center;
         
         ul {
+            width: 55%;
+            padding: 0;
             margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
 
             li {
                 list-style: none;
                 cursor: pointer;
 
                 a:hover {
-                    color: $white;
+                    color: $dark-blue;
                 }
             }
 
@@ -41,6 +52,10 @@ header {
                 border-radius: 5px;
                 background-color: $light-blue;
                 padding: .35em .5em;
+
+                a:hover {
+                    color: $white;
+                }
             }
 
             li:last-child:hover {
